@@ -1,13 +1,14 @@
 import { useEffect, useRef } from 'react';
 
-export default function useOutsideClick(close, listenCapturing = true) {
+export default function useOutsideClick(handler, listenCapturing = true) {
   const ref = useRef();
 
   useEffect(
     function () {
       function handleClick(e) {
+        // console.log('click outsite');
         if (ref.current && !ref.current.contains(e.target)) {
-          close();
+          handler();
         }
       }
 
@@ -15,7 +16,7 @@ export default function useOutsideClick(close, listenCapturing = true) {
       return () =>
         document.removeEventListener('click', handleClick, listenCapturing);
     },
-    [close, listenCapturing]
+    [handler, listenCapturing]
   );
 
   return ref;
