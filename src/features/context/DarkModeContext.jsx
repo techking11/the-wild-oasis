@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect } from 'react';
 import { useLocalStorageState } from '../../hooks/useLocalStorageState';
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const DarkModeContext = createContext();
 
 export default function DarkModeProvider({ children }) {
