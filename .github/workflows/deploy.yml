@@ -34,7 +34,7 @@ jobs:
 
       # Step 5: Deploy to Netlify
       - name: Deploy to Netlify
-        uses: netlify/actions/cli-action@v1
+        uses: netlify/actions/cli-action@v2
         with:
           # Provide your Netlify site ID and personal access token
           site_id: ${{ secrets.NETLIFY_SITE_ID }}
