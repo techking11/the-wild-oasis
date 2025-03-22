@@ -32,11 +32,10 @@ jobs:
       - name: Build app
         run: npm run build
 
-      # Step 5: Deploy to Netlify
+      # Step 5: Install Netlify CLI
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+
+      # Step 6: Deploy to Netlify
       - name: Deploy to Netlify
-        uses: netlify/actions/cli-action@v2
-        with:
-          # Provide your Netlify site ID and personal access token
-          site_id: ${{ secrets.NETLIFY_SITE_ID }}
-          auth_token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          command: 'deploy --dir=dist --prod'
+        run: netlify deploy --dir=dist --prod --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.NETLIFY_SITE_ID }}
