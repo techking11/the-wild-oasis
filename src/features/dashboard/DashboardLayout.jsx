@@ -5,6 +5,8 @@ import useRecentStays from './useRecentStays';
 import useCabins from '../cabins/useCabins';
 import Spinner from '../../ui/Spinner';
 import TodayActivity from '../check-in-out/TodayActivity';
+import DurationChart from './DurationChart';
+import SalesChart from './SalesChart';
 
 const StyledDashboardLayout = styled.div`
   display: grid;
@@ -29,6 +31,8 @@ export default function DashboardLayout() {
         cabinCount={cabins?.length}
       />
       <TodayActivity />
+      <DurationChart confirmedStays={confirmedStays} />
+      <SalesChart bookings={bookings} numDays={numDays} />
     </StyledDashboardLayout>
   );
 }
