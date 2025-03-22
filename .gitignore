@@ -131,3 +131,6 @@ dist
 
 # custom hide file
 package-lock.json
+
+# Local Netlify folder
+.netlify
